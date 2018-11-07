@@ -12,14 +12,14 @@ app.get("/applications", (req, res) => {
         {
           "id": "clocky",
           "name": "Clocky",
-          "uri": "https://xCloud.felixmattick.repl.co/application/clocky.xb",
+          "uri": "https://xcloud-heroku.herokuapp.com/application/clocky.xb",
           "fixed": true,
           "height": 120
         },
         {
           "id": "background-manager",
           "name": "Background Manager",
-          "uri": "https://xCloud.felixmattick.repl.co/application/background-manager.xb",
+          "uri": "https://xcloud-heroku.herokuapp.com/application/background-manager.xb",
           "width": 435,
           "height": 435
         }
@@ -41,17 +41,17 @@ app.get("/backgrounds", (req, res) => {
       {
         "name": "Look Down",
         "id": "look-down",
-        "value": "https://xCloud.felixmattick.repl.co/background/look-down.jpg"
+        "value": "https://xcloud-heroku.herokuapp.com/background/look-down.jpg"
       },
       {
         "name": "Goodnight, Chicago",
         "id": "goodnight-chicago",
-        "value": "https://xCloud.felixmattick.repl.co/background/goodnight-chicago.jpg"
+        "value": "https://xcloud-heroku.herokuapp.com/background/goodnight-chicago.jpg"
       },
       {
         "name": "Violet Sunset",
         "id": "violet-sunset",
-        "value": "https://xCloud.felixmattick.repl.co/background/violet-sunset.jpg"
+        "value": "https://xcloud-heroku.herokuapp.com/background/violet-sunset.jpg"
       },
       {
         "name": "Black",
