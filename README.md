@@ -15,3 +15,4 @@ $ npm start
 
 - [xOS (what this is the backend for)](https://github.com/thexproject/xos)
 - [The license (AGPL-3.0)](https://github.com/thexproject/xcloud/blob/master/LICENSE)
+- [Heroku deployment](https://xcloud-heroku.herokuapp.com)
