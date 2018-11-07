@@ -1,0 +1,30 @@
+{
+  "name": "xCloud",
+  "version": "1.0.0",
+  "description": "The backend for xOS.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thexproject/xcloud.git"
+  },
+  "keywords": [
+    "node",
+    "xos",
+    "x",
+    "backend"
+  ],
+  "author": "The X Project",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/thexproject/xcloud/issues"
+  },
+  "homepage": "https://github.com/thexproject/xcloud#readme",
+  "dependencies": {
+    "express": "latest",
+    "sqlite3": "latest",
+    "cors": "latest"
+  }
+}
