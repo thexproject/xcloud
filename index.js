@@ -63,12 +63,6 @@ app.get("/backgrounds", (req, res) => {
   });
 });
 
-app.get("/backgrounds/default", (req, res) => {
-  res.json({
-    "data": "look-down"
-  });
-});
-
 app.use("/background", express.static("backgrounds"));
 
 app.get("/application/:file", (req, res) => {
