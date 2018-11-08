@@ -26,7 +26,7 @@ app.get("/applications", (req, res) => {
 				{
           "id": "calc",
           "name": "Calc",
-          "uri": "http://xcloud-heroku.herokuapp.com/application/calc.xb",
+          "uri": "https://xcloud-heroku.herokuapp.com/application/calc.xb",
 					"fixed": true,
 					"width": 265,
 					"height": 316
