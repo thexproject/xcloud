@@ -22,6 +22,14 @@ app.get("/applications", (req, res) => {
           "uri": "https://xcloud-heroku.herokuapp.com/application/background-manager.xb",
           "width": 435,
           "height": 435
+        },
+				{
+          "id": "calc",
+          "name": "Calc",
+          "uri": "http://xcloud-heroku.herokuapp.com/application/calc.xb",
+					"fixed": true,
+					"width": 265,
+					"height": 316
         }
       ]
     });
@@ -69,4 +77,5 @@ app.get("/application/:file", (req, res) => {
   res.send(fs.readFileSync("applications/" + req.params.file, "utf-8"));
 });
 
-app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
+let port = process.env.PORT ? process.env.PORT : 3000;
+app.listen(port, () => console.log(`Server started on port ${port}.`));
