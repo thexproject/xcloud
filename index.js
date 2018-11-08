@@ -2,8 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://ef807cd0162e4c59badc23cb67203989@sentry.io/1319079' });
+
 const app = express();
+app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
+app.use(Sentry.Handlers.errorHandler());
 
 app.get("/applications", (req, res) => {
 	res.json({
