@@ -1,5 +1,5 @@
 {
-  "name": "xCloud",
+  "name": "xcloud",
   "version": "1.0.0",
   "description": "The backend for xOS.",
   "main": "index.js",
@@ -17,14 +17,14 @@
     "backend"
   ],
   "author": "The X Project",
-  "license": "AGPL-3.0-or-later",
+  "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/thexproject/xcloud/issues"
   },
   "homepage": "https://github.com/thexproject/xcloud#readme",
   "dependencies": {
-    "express": "latest",
-    "sqlite3": "latest",
-    "cors": "latest"
-  }
+    "cors": "latest",
+    "express": "latest"
+  },
+  "devDependencies": {}
 }
