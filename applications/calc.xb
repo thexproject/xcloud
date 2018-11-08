@@ -25,25 +25,27 @@
 </div>
 
 <script>
-  let display = x().find(".calc-display");
-  for (let node of x().node.querySelectorAll(".calc-button")) {
-    x(node).click(list => {
-      list[0].text(list[0].text().replace("&nbsp;", "") + list[1].text());
-    }, [display, x(node)]);
-  }
-  x().find(".calc-clear").click(display => {
-    display.html("&nbsp;");
-  }, display);
-  x().find(".calc-evaluate").click(display => {
-    let code = display.text();
-    code = code.replace("&nbsp;", "");
-    try {
-      code = eval(code);
-    } catch(error) {
-      logger.warn(`Calculator couldn't eval ${code}.`);
+  (() => {
+    let display = x().find(".calc-display");
+    for (let node of x().node.querySelectorAll(".calc-button")) {
+      x(node).click(list => {
+        list[0].text(list[0].text().replace("&nbsp;", "") + list[1].text());
+      }, [display, x(node)]);
     }
-    display.html(code);
-  }, display);
+    x().find(".calc-clear").click(display => {
+      display.html("&nbsp;");
+    }, display);
+    x().find(".calc-evaluate").click(display => {
+      let code = display.text();
+      code = code.replace("&nbsp;", "");
+      try {
+        code = eval(code);
+      } catch(error) {
+        logger.warn(`Calculator couldn't eval ${code}.`);
+      }
+      display.html(code);
+    }, display);
+  })();
 </script>
 
 <style>
