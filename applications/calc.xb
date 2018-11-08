@@ -28,7 +28,7 @@
   let display = x().find(".calc-display");
   for (let node of x().node.querySelectorAll(".calc-button")) {
     x(node).click(list => {
-      list[0].text(list[0].text() + list[1].text());
+      list[0].text(list[0].text().replace("&nbsp;", "") + list[1].text());
     }, [display, x(node)]);
   }
   x().find(".calc-clear").click(display => {
