@@ -25,7 +25,8 @@
   "dependencies": {
     "@sentry/node": "^4.3.0",
     "cors": "latest",
-    "express": "latest"
+    "express": "latest",
+    "mongoose": "^5.3.10"
   },
   "devDependencies": {}
 }
