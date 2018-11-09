@@ -29,7 +29,11 @@
     let display = x().find(".calc-display");
     for (let node of x().node.querySelectorAll(".calc-button")) {
       x(node).click(list => {
-        list[0].text((list[0].html() + list[1].html()).replace("&nbsp;", ""));
+        let toAppend = list[1].html();
+        if (toAppend == "+" || toAppend == "-" || toAppend == "*" || toAppend == "/") {
+          toAppend = " " + toAppend + " ";
+        }
+        list[0].html((list[0].html() + toAppend).replace("&nbsp;", ""));
       }, [display, x(node)]);
     }
     x().find(".calc-clear").click(display => {
@@ -50,8 +54,6 @@
 
 <style>
   .calc-display {
-    border: 2px solid var(--color-foreground-main);
-    border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
     overflow: hidden;
