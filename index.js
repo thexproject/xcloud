@@ -61,6 +61,7 @@ db.once("open", () => {
 		"id": String,
 		"solid": { "type": Boolean, "default": false },
 		"value": String,
+		"accent": String,
 		"creator": String
 	}, { "collection": "backgrounds" });
 	const Background = mongoose.model("Background", backgroundSchema);
