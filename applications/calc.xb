@@ -29,9 +29,7 @@
     let display = x().find(".calc-display");
     for (let node of x().node.querySelectorAll(".calc-button")) {
       x(node).click(list => {
-        const operatorRegex = /\+|-|\*|\//;
-        const toAppend = operatorRegex.exec(list[1].html()) ? "&nbsp;" + list[1].html() + "&nbsp;" : list[1].html();
-        list[0].html((list[0].html() + toAppend).replace("&nbsp;", ""));
+        list[0].text((list[0].html() + ((/\+|-|\*|\//).exec(list[1].html()) ? "&nbsp;" + list[1].html() + "&nbsp;" : list[1].html()).replace("&nbsp;", ""));
       }, [display, x(node)]);
     }
     x().find(".calc-clear").click(display => {
