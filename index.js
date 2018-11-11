@@ -2,15 +2,22 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const bodyParser = require("body-parser");
 
 // Sentry.io
 const Sentry = require("@sentry/node");
 Sentry.init({ dsn: "https://ef807cd0162e4c59badc23cb67203989@sentry.io/1319079" });
 
+// Google
+var GoogleSignIn = require("google-sign-in");
+var gsip = new GoogleSignIn.Project("598450024222-jqec444ofe8deh5of2ussga9dpc637he.apps.googleusercontent.com");
+
 // Express
 const app = express();
 app.use(Sentry.Handlers.requestHandler());
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(Sentry.Handlers.errorHandler());
 
 // Mongoose
@@ -30,9 +37,9 @@ db.once("open", () => {
 		"name": String,
 		"id": String,
 		"uri": String,
-		"fixed": { "type": Boolean, "default": false },
-		"width": { "type": Number, "default": 300 },
-		"height": { "type": Number, "default": 250 },
+		"fixed": Boolean,
+		"width": Number,
+		"height": Number,
 		"creator": String
 	}, { "collection": "applications" });
 	const Application = mongoose.model("Application", applicationSchema);
@@ -59,7 +66,7 @@ db.once("open", () => {
 	const backgroundSchema = new mongoose.Schema({
 		"name": String,
 		"id": String,
-		"solid": { "type": Boolean, "default": false },
+		"solid": Boolean,
 		"value": String,
 		"accent": String,
 		"creator": String
@@ -71,6 +78,26 @@ db.once("open", () => {
 		  if (error) return console.error(error);
 		  res.json(backgrounds);
 		});
+	});
+
+	app.post("/create/background", (req, res) => {
+		if (req.body.name && req.body.id && req.body.solid && req.body.value && req.body.accent && req.body.token) {
+			gsip.verifyToken(req.body.token).then(data => {
+				let created = new Background({
+					"name": req.body.name,
+					"id": req.body.id,
+					"solid": req.body.solid,
+					"value": req.body.value,
+					"accent": req.body.accent,
+					"creator": data.email
+				});
+				created.save();
+			}, () => {
+				res.status(403).send("Error 403: Error in token");
+			})
+		} else {
+			res.status(400).send("Error 400: Bad request");
+		}
 	});
 
 	// Built-in Applications and Backgrounds

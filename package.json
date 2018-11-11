@@ -24,8 +24,10 @@
   "homepage": "https://github.com/thexproject/xcloud#readme",
   "dependencies": {
     "@sentry/node": "^4.3.0",
+    "body-parser": "^1.18.3",
     "cors": "latest",
     "express": "latest",
+    "google-sign-in": "^3.0.3",
     "mongoose": "^5.3.10"
   },
   "devDependencies": {}
