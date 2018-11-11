@@ -100,11 +100,8 @@ db.once("open", () => {
 		}
 	});
 
-	// Built-in Applications and Backgrounds
+	// Built-in Backgrounds
 	app.use("/background", express.static("backgrounds"));
-	app.get("/application/:file", (req, res) => {
-	  res.send(fs.readFileSync("applications/" + req.params.file.replace("..", ""), "utf-8"));
-	});
 
 	// Start Server
 	const port = process.env.PORT ? process.env.PORT : 3000;
