@@ -22,12 +22,7 @@ app.use(Sentry.Handlers.errorHandler());
 
 // Mongoose
 const mongoose = require("mongoose");
-mongoose.connect(`mongodb+srv://xcloud-zr62s.gcp.mongodb.net/`, {
-	useNewUrlParser: true,
-	user: 'admin',
-	pass: process.env.MONGO_PASSWORD,
-	dbName: 'main'
-});
+mongoose.connect(`mongodb+srv://admin:${encodeURIComponent(process.env.MONGO_PASSWORD)}@xcloud-zr62s.gcp.mongodb.net/main`, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", error => {
 	throw error;
