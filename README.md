@@ -1,3 +1,5 @@
+> 🚩 **This project is archived!** 🚩
+
 # xCloud
 
 [![License](https://img.shields.io/github/license/thexproject/xcloud.svg?style=flat)](https://github.com/thexproject/xcloud/blob/master/LICENSE)
